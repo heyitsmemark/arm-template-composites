@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resources": {
+            "type": "object"
+        }
+    },
+    "variables": {
+        "deploymentsApiVersion": "2019-10-01",
+        "resourcesDefinitions": [
+            {
+                "name": "storageAccounts",
+                "uri": "composites/storage/2019-12-01/storageAccount.json"
+            },
+            {
+                "name": "networkInterfaces",
+                "uri": "components/network/2019-09-01/networkInterface.json"
+            },
+            {
+                "name": "managedClusters",
+                "uri": "composites/aks/2020-06-01/managedCluster.json"
+            }
+        ]
+    },
+    "resources": [
+        {
+            "apiVersion": "[variables('deploymentsApiVersion')]",
+            "name": "[concat(deployment().name, '-dl-', copyIndex())]",
+            "copy": {
+                "name": "resourcescopy",
+                "count": "[length(variables('resourcesDefinitions'))]"
+            },
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'nested/definitionloop.json')]"
+                },
+                "parameters": {
+                    "resourcesApiVersion": {
+                        "value": "[variables('deploymentsApiVersion')]"
+                    },
+                    "resourceDefinition": {
+                        "value": "[variables('resourcesDefinitions')[copyIndex()]]"
+                    },
+                    "resources": {
+                        "value": "[parameters('resources')]"
+                    }
+                }
+            },
+            "dependsOn": [
+            ]
+        }
+    ]
+}
