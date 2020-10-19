@@ -20,6 +20,10 @@
             {
                 "name": "managedClusters",
                 "uri": "composites/aks/2020-06-01/managedCluster.json"
+            },
+            {
+                "name": "services",
+                "uri": "components/apimanagement/2019-12-01/service.json"
             }
         ]
     },
