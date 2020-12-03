@@ -24,6 +24,10 @@
             {
                 "name": "vaults",
                 "uri": "composites/keyvault/2020-12-01/vault.json"
+            },
+            {
+                "name": "servers",
+                "uri": "composites/sql/2020-12-01/server.json"
             }
         ]
     },
