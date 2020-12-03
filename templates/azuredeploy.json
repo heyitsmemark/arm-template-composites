@@ -23,7 +23,7 @@
             },
             {
                 "name": "vaults",
-                "uri": "components/keyvault/2019-09-01/vaults.json"
+                "uri": "composites/keyvault/2020-12-01/vault.json"
             }
         ]
     },
