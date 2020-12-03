@@ -19,7 +19,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, '../../../components/keyvaults/2019-09-01/vaults.json')]"
+                    "uri": "[uri(deployment().properties.templateLink.uri, '../../../components/keyvault/2019-09-01/vaults.json')]"
                 },
                 "parameters": {
                     "resourceObject": {
