@@ -62,7 +62,7 @@
                 },
                 "parameters": {
                     "resourceObject": {
-                        "value": "[parameters('resourceObject').elasticPool]"
+                        "value": "[union(json(concat('{\"serverName\": \"', parameters('resourceObject').name, '\"}')), parameters('resourceObject').elasticPool)]"
                     }
                 }
             },
