@@ -14,7 +14,7 @@
     "resources": [
         {
             "apiVersion": "[parameters('resourcesApiVersion')]",
-            "name": "[deployment().name]",
+            "name": "[concat(deployment().name, '-sql')]",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "Incremental",
@@ -47,7 +47,7 @@
                 }
             },
             "dependsOn": [
-                "[deployment().name]"
+                "[concat(deployment().name, '-sql')]"
             ]
         },
         {
@@ -67,7 +67,7 @@
                 }
             },
             "dependsOn": [
-                "[deployment().name]"
+                "[concat(deployment().name, '-sql')]"
             ]
         },
         {
@@ -91,7 +91,7 @@
                 }
             },
             "dependsOn": [
-                "[deployment().name]",
+                "[concat(deployment().name, '-sql')]",
                 "[concat(deployment().name, '-ep')]"
             ]
         },
@@ -116,7 +116,7 @@
                 }
             },
             "dependsOn": [
-                "[deployment().name]",
+                "[concat(deployment().name, '-sql')]",
                 "[concat(deployment().name, '-ep')]"
             ]
         }
