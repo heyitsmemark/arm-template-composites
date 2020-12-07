@@ -14,7 +14,7 @@
     "resources": [
         {
             "apiVersion": "[parameters('resourcesApiVersion')]",
-            "name": "[concat(deployment().name, '-', parameters('resourceObject').name)]",
+            "name": "[deployment().name]",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "Incremental",
@@ -42,7 +42,7 @@
                 },
                 "parameters": {
                     "resourceObject": {
-                        "value": "[parameters('resourceObject').activeDirectory]"
+                        "value": "[union(json(concat('{\"serverName\": \"', parameters('resourceObject').name, '\"}')), parameters('resourceObject').activeDirectory)]"
                     }
                 }
             },

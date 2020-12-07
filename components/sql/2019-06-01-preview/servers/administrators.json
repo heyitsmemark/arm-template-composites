@@ -10,7 +10,7 @@
     },
     "resources": [
         {
-            "name": "[parameters('resourceObject').name]",
+            "name": "[concat(parameters('resourceObject').serverName, '/activeDirectory')]",
             "type": "Microsoft.Sql/servers/administrators",
             "apiVersion": "2019-06-01-preview",
             "properties": "[parameters('resourceObject').properties]"
