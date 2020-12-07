@@ -11,7 +11,7 @@
     },
     "resources": [
         {
-            "name": "[parameters('resourceObject').name]",
+            "name": "[concat(parameters('resourceObject').serverName, '/', parameters('resourceObject').name)]",
             "type": "Microsoft.Sql/servers/databases",
             "apiVersion": "2019-06-01-preview",
             "location": "[if(contains(parameters('resourceObject'), 'location'), parameters('resourceObject').location, resourceGroup().location)]",
