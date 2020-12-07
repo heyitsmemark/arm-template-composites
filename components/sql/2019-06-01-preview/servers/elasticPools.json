@@ -22,7 +22,7 @@
     "outputs": {
         "elasticPool": {
             "type": "object",
-            "value": "[reference(concat('Microsoft.Sql/servers/elasticPools/', parameters('resourceObject').serverName, '/', parameters('resourceObject').name), '2019-06-01-preview', 'Full')]"
+            "value": "[reference(parameters('resourceObject').name, '2019-06-01-preview', 'Full')]"
         }
     }
 }
