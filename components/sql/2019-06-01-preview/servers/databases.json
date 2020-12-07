@@ -23,7 +23,7 @@
     "outputs": {
         "database": {
             "type": "object",
-            "value": "[reference(concat('Microsoft.Sql/servers/databases/', parameters('resourceObject').name), '2019-06-01-preview', 'Full')]"
+            "value": "[reference(parameters('resourceObject').name, '2019-06-01-preview', 'Full')]"
         }
     }
 }
