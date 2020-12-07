@@ -32,7 +32,7 @@
         },
         {
             "apiVersion": "[parameters('resourcesApiVersion')]",
-            "name": "[concat(deployment().name, '-', parameters('resourceObject').name, '-ad')]",
+            "name": "[concat(deployment().name, '-ad')]",
             "type": "Microsoft.Resources/deployments",
             "condition": "[contains(parameters('resourceObject'), 'activeDirectory')]",
             "properties": {
@@ -47,12 +47,12 @@
                 }
             },
             "dependsOn": [
-                "[concat(deployment().name, '-', parameters('resourceObject').name)]"
+                "[deployment().name]"
             ]
         },
         {
             "apiVersion": "[parameters('resourcesApiVersion')]",
-            "name": "[concat(deployment().name, '-', parameters('resourceObject').name, '-ep')]",
+            "name": "[concat(deployment().name, '-ep')]",
             "type": "Microsoft.Resources/deployments",
             "condition": "[contains(parameters('resourceObject'), 'elasticPool')]",
             "properties": {
@@ -67,7 +67,7 @@
                 }
             },
             "dependsOn": [
-                "[concat(deployment().name, '-', parameters('resourceObject').name)]"
+                "[deployment().name]"
             ]
         },
         {
@@ -91,8 +91,8 @@
                 }
             },
             "dependsOn": [
-                "[concat(deployment().name, '-', parameters('resourceObject').name)]",
-                "[concat(deployment().name, '-', parameters('resourceObject').name, '-ep')]"
+                "[deployment().name]",
+                "[concat(deployment().name, '-ep')]"
             ]
         },
         {
@@ -116,8 +116,8 @@
                 }
             },
             "dependsOn": [
-                "[concat(deployment().name, '-', parameters('resourceObject').name)]",
-                "[concat(deployment().name, '-', parameters('resourceObject').name, '-ep')]"
+                "[deployment().name]",
+                "[concat(deployment().name, '-ep')]"
             ]
         }
     ]
