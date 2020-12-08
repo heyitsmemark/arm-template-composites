@@ -23,7 +23,7 @@
         }
     ],
     "outputs": {
-        "vault": {
+        "privateEndpoint": {
             "type": "object",
             "value": "[reference(parameters('resourceObject').name, '2020-06-01', 'Full')]"
         }
