@@ -2,6 +2,10 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "copyMode": {
+            "type": "string",
+            "defaultValue": "parallel"
+        },
         "resources": {
             "type": "object"
         }
@@ -45,7 +49,8 @@
             "name": "[concat(deployment().name, '-dl-', copyIndex())]",
             "copy": {
                 "name": "resourcescopy",
-                "count": "[length(variables('resourcesDefinitions'))]"
+                "count": "[length(variables('resourcesDefinitions'))]",
+                "mode": "[parameters('copyMode')]"
             },
             "type": "Microsoft.Resources/deployments",
             "properties": {
