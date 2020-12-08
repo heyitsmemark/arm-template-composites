@@ -32,6 +32,10 @@
             {
                 "name": "privateEndpoints",
                 "uri": "components/network/2020-06-01/privateEndpoints.json"
+            },
+            {
+                "name": "subnets",
+                "uri": "components/network/2020-06-01/virtualNetworks/subnets.json"
             }
         ]
     },
