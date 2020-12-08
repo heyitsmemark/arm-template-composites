@@ -28,6 +28,10 @@
             {
                 "name": "sqlServers",
                 "uri": "composites/sql/2020-12-01/server.json"
+            },
+            {
+                "name": "privateEndpoints",
+                "uri": "components/network/2020-06-01/privateEndpoints.json"
             }
         ]
     },
