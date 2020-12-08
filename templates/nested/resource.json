@@ -37,6 +37,7 @@
             "apiVersion": "[parameters('resourcesApiVersion')]",
             "name": "[concat(deployment().name, '-r')]",
             "type": "Microsoft.Resources/deployments",
+            "resourceGroup": "[if(contains(parameters('resourceObject'), 'resourceGroup'), parameters('resourceObject').resourceGroup, deployment().resourceGroup)]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
