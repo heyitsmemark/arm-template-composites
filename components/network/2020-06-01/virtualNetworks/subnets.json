@@ -14,7 +14,7 @@
     },
     "resources": [
         {
-            "name": "[concat(parameters('resourceObject').virtualNetworkName, parameters('resourceObject').name)]",
+            "name": "[concat(parameters('resourceObject').virtualNetworkName, '/', parameters('resourceObject').name)]",
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-06-01",
             "properties": "[parameters('resourceObject').properties]"
