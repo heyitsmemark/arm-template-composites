@@ -17,7 +17,7 @@
         "resourcesDefinitions": [
             {
                 "name": "storageAccounts",
-                "uri": "composites/storage/2019-12-01/storageAccount.json"
+                "uri": "composites/storage/2019-06-01/storageAccounts.json"
             },
             {
                 "name": "networkInterfaces",
