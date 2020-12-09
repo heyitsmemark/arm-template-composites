@@ -2,6 +2,12 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "options": {
+            "type": "object",
+            "defaultValue": {
+                "copyMode": "parallel"
+            }
+        },
         "resources": {
             "type": "object"
         }
@@ -24,6 +30,18 @@
             {
                 "name": "vaults",
                 "uri": "composites/keyvault/2020-12-01/vault.json"
+            },
+            {
+                "name": "sqlServers",
+                "uri": "composites/sql/2020-12-01/server.json"
+            },
+            {
+                "name": "privateEndpoints",
+                "uri": "components/network/2020-06-01/privateEndpoints.json"
+            },
+            {
+                "name": "subnets",
+                "uri": "components/network/2020-06-01/virtualNetworks/subnets.json"
             }
         ]
     },
@@ -33,7 +51,8 @@
             "name": "[concat(deployment().name, '-dl-', copyIndex())]",
             "copy": {
                 "name": "resourcescopy",
-                "count": "[length(variables('resourcesDefinitions'))]"
+                "count": "[length(variables('resourcesDefinitions'))]",
+                "mode": "[parameters('options').copyMode]"
             },
             "type": "Microsoft.Resources/deployments",
             "properties": {
