@@ -39,7 +39,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "[parameters('resourcesApiVersion')]",
             "condition": "[contains(parameters('resourceObject'), 'containerRegistry')]",
-            "resourceGroup": "[parameters('resourceObject').containerRegistry.resourceGroup]",
+            "resourceGroup": "[if(contains(parameters('resourceObject'), 'containerRegistry'), parameters('resourceObject').containerRegistry.resourceGroup, resourceGroup().name)]",
             "dependsOn": [
                 "[concat(deployment().name, '-', parameters('resourceObject').name)]"
             ],
