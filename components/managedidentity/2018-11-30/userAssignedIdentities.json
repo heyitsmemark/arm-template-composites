@@ -4,6 +4,10 @@
     "parameters": {
         "resourceObject": {
             "type": "object"
+        },
+        "resourcesApiVersion": {
+            "type": "string",
+            "defaultValue": ""
         }
     },
     "variables": {
