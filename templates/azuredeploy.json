@@ -45,7 +45,7 @@
             },
             {
                 "name": "userAssignedIdentities",
-                "uri": "composites/managedIdentity/2018-11-30/userAssignedIdentities.json"
+                "uri": "components/managedIdentity/2018-11-30/userAssignedIdentities.json"
             }
         ]
     },
