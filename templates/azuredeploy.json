@@ -42,6 +42,10 @@
             {
                 "name": "subnets",
                 "uri": "components/network/2020-06-01/virtualNetworks/subnets.json"
+            },
+            {
+                "name": "userAssignedIdentities",
+                "uri": "composites/managedIdentity/2018-11-30/userAssignedIdentities.json"
             }
         ]
     },
