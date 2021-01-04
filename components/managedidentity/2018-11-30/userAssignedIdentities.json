@@ -20,11 +20,5 @@
             "tags": "[if(contains(parameters('resourceObject'), 'tags'), parameters('resourceObject').tags, json('null'))]",
             "location": "[if(contains(parameters('resourceObject'), 'location'), parameters('resourceObject').location, resourceGroup().location)]"
         }
-    ],
-    "outputs": {
-        "userAssignedIdentity": {
-            "type": "object",
-            "value": "[reference(concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('resourceObject').name), '2018-11-30', 'Full')]"
-        }
-    }
+    ]
 }
