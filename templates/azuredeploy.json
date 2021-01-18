@@ -46,6 +46,10 @@
             {
                 "name": "dataFactories",
                 "uri": "composites/datafactory/2020-12-01/factory.json"
+            },
+            {
+                "name": "userAssignedIdentities",
+                "uri": "components/managedidentity/2018-11-30/userAssignedIdentities.json"
             }
         ]
     },
